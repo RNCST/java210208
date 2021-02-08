@@ -2,16 +2,12 @@ package variable.step1;
 
 public class Variable {
 	//선언부
-	
 	//메소드 선언
 	void methodA(int x) {
-		
 	}
 	String methodB(String x) {
 		return "x";
 	}
-	
-	
 	//메소드선언 - 메소드가 선언되어야 exe파일로 만들수 있음.
 	/**********************************
 	 * 문제해결능력 키움
@@ -33,7 +29,6 @@ public class Variable {
 		System.out.println(v.methodB("y")); //double(반환값이 있음)로 있어서 에러가 아닌것.
 		//System.out.println(v.methodA(1)); //void(반환값이 없음) 에러가 난것.
 										  // input - process - output, 반환값==output
-		
 		System.out.print(10+10);	//20
 		System.out.print(10+"10");  //1010
 		System.out.println(); // 줄바꿈 추가된 메소드
