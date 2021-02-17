@@ -34,7 +34,7 @@ public class P0217N02_3 extends JFrame {
 		rgview.add("East", jp_east);				  // 오른쪽이 출력
 		rgview.setTitle("난수 게임. Ver1.0");			  // 팝업 제목 설정
 		rgview.setSize(400, 300);
-		rgview.setVisible(true);					  // 화면이 보이게
+		rgview.setVisible(true);					  // 화면 팝업의 활성화
 
 	}
 

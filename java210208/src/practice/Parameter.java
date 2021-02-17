@@ -5,7 +5,7 @@ public class Parameter {
 
 	public static void main(String[] args) {
 
-		Parameter P = new Parameter();
+		Parameter P = new Parameter();  // 이자리 파라미터가 채워진다면??
 		P.methodA("NO");
 		P.methodA("OK");
 		P.methodA("a");
