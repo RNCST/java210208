@@ -2,6 +2,8 @@ package practice;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,9 +11,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class P0217N02_3 extends JFrame {
+public class P0217N02_3 extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
+		P0217N02_3 A = new P0217N02_3();
+		A.initDisplay();
+	}
+	public void initDisplay() {
 		P0217N02_3 rgview = new P0217N02_3();
 		JPanel jp_center = new JPanel();
 		JPanel jp_east = new JPanel();
@@ -36,6 +42,12 @@ public class P0217N02_3 extends JFrame {
 		rgview.setSize(400, 300);
 		rgview.setVisible(true);					  // 화면 팝업의 활성화
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		initDisplay A = new initDisplay();
+		if
 	}
 
 }

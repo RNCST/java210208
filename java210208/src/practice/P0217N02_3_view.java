@@ -2,6 +2,8 @@ package practice;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class P0217N02_3_view extends JFrame {
+public class P0217N02_3_view extends JFrame implements ActionListener{
 	//선언부 
 	//속지(밑장을 만드는)를 생성하는 클래스 인스턴스화
 	JPanel jp_center = new JPanel(); // 중앙에 있는 속지 인스턴스화
@@ -23,7 +25,7 @@ public class P0217N02_3_view extends JFrame {
 	JTextField jtf_input = new JTextField();      // 입력창
 	//생성자
 	public P0217N02_3_view() {
-		initDisplay();
+		initDisplay();                            // 창이 뜨도록 해주는곳
 	}
 	//화면처리부
 	public void initDisplay() {
@@ -32,6 +34,12 @@ public class P0217N02_3_view extends JFrame {
 		jp_east.add(jbtn_dap);    //  정답      버튼
 		jp_east.add(jbtn_clear);  //  지우기   버튼
 		jp_east.add(jbtn_exit);   //  나가기   버튼 디폴트 위치가 오른쪽인가??
+		
+		jbtn_new.addActionListener(this);
+		jbtn_dap.addActionListener(this);
+		jbtn_clear.addActionListener(this);
+		jbtn_exit.addActionListener(this);
+		
 		jp_center.setLayout(new BorderLayout());
 		jp_center.add("Center", jta_display);         // 입력 창 위에 결과가 나오는 곳 
 		jp_center.add("South", jtf_input);            // 입력 창
@@ -48,6 +56,25 @@ public class P0217N02_3_view extends JFrame {
 		P0217N02_3_view rgview = new P0217N02_3_view();
 		
 
+	}
+	
+	@Override
+	
+	public void actionPerformed(ActionEvent e) {
+		if (jbtn_new == e.getSource()) {
+			System.out.println("1");
+		}
+		if (jbtn_dap == e.getSource()) {
+			System.out.println("2");
+		}
+		if (jbtn_clear == e.getSource()) {
+			System.out.println("3");
+		}
+		if (jbtn_exit == e.getSource()) {
+			System.exit(0);
+		}
+		
+		
 	}
 
 }
