@@ -3,7 +3,7 @@ package book.ch7;
 public class Array03 {
 
 	public static void main(String[] args) {
-		EmpVO eVOS[] = new EmpVO[3];
+		EmpVO eVOS[] = new EmpVO[3]; //VO Value Object -- 
 		
 		EmpVO eVO = new EmpVO();
 		eVO.setEmpno(0001); eVO.setEname(" AAAA "); eVO.setSal(1.11);
@@ -20,6 +20,11 @@ public class Array03 {
 		System.out.println(eVO);
 		System.out.println("");
 		for(EmpVO eVO2:eVOS) {  /// 
+			System.out.println(eVO2);
+			System.out.println(eVO2.getEmpno()+eVO2.getEname()+eVO2.getSal());
+			System.out.println("");
+		}
+		for(EmpVO eVO2 = eVOS; ; ) {
 			System.out.println(eVO2);
 			System.out.println(eVO2.getEmpno()+eVO2.getEname()+eVO2.getSal());
 			System.out.println("");
