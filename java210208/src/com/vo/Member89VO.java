@@ -1,13 +1,24 @@
 package com.vo;
-
+   
 public class Member89VO {
 	
-	
-	private String mem_id = null; // 아이디 담기
-	private String mem_pw = null; // 비번 담기
-	private boolean gender = false; // 성별 담기
+	private String mem_id = null; // 아이디 담기    
+	private String mem_pw = null; // 비번 담기       
+	private boolean gender = false; // 성별 담기   
 	 // private class 안에서밖에 접근할 수 없다.
 
+
+	public Member89VO(String mem_id, String mem_pw, boolean gender) {
+		this.mem_id = mem_id;
+		this.mem_pw = mem_pw;
+		this.gender = gender;
+		
+	}
+	
+	public Member89VO() {}
+
+	
+	
 	public String getMem_id() {
 		return mem_id;
 	}
