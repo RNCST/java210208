@@ -25,13 +25,13 @@ public class P0219N02 {
 		for (int x = 0; x < Array.length; x++) {
 			Array[x] = r.nextInt(inputY);
 		}
-		Array[area - 1] = r.nextInt(inputY - 1);
+//		Array[area - 1] = r.nextInt(inputY - 1);
 	} // int y (inputArea) 만큼의 정수 범위 인데 0을 포함함
 
 	int pickMaxInt(int inputZ) {
 		int i;
 		int maxInt = Array[0];
-		for (i = 1; i <= Array.length; i++) {
+		for (i = 1; i < Array.length; i++) {
 			if (Array[i] > maxInt) { // 에러
 				maxInt = Array[i];
 			}
@@ -40,8 +40,7 @@ public class P0219N02 {
 	}
 
 	void print(int inputMax) {
-		P0219N02 A = new P0219N02();
-		System.out.println(inputMax);
+		System.out.println("이 배열속에서 최대의 정수값은"+inputMax);
 	}
 
 	public static void main(String[] args) {

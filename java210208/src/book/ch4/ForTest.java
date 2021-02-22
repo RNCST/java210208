@@ -36,6 +36,9 @@ public class ForTest {
 	void methodA() {}//friendly 상태이다.
 	public static void main(String[] args) {
 		ForTest instance = new ForTest();
+		System.out.println(instance);
+		ForTest instance1 = new ForTest();
+		System.out.println(instance1);
 		instance.a = 0;
 		int n = 0;
 //		int Esum = 0;
@@ -44,6 +47,7 @@ public class ForTest {
 			if (i % 2 == 0) {
 				instance.Esum = instance.Esum + i;
 				System.out.println(n +"번째 짝수까지 합은" + instance.Esum);
+				System.out.println(n +"번째 짝수까지 합은" + instance1.Esum);
 			} else {
 				Osum = Osum + i;
 				n = n + 1;
@@ -55,10 +59,14 @@ public class ForTest {
 		System.out.println(instance);
 
 	}
-	
+		
+		
 	
 	void method(){
 		System.out.println(n+3);}
 		
 	
 }
+ 
+
+

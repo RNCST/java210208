@@ -17,6 +17,8 @@ public class Array01 {
 		//저 14개 방에는 어떤 값이 들어 있을까 --> 0이 14개 들어있음.
 		Array01 a1 = new Array01();
 		a1.printArray(empnos);
+		int 변수 =
+		System.out.println(변수);
 	}
 
 }

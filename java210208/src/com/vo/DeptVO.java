@@ -22,7 +22,6 @@ package com.vo;
  *  DeptVO dvo = new DeptVo();
  *  dvo = DeptVO();
  *  dvo = DeptVO();
- *  22~24는 합법인문법인가?? 어떻게 다른가?? 어떤 방법이 더 좋은가?? 언제 저렇게 써야하는가??
  *  
  */
 public class DeptVO {
@@ -30,7 +29,7 @@ public class DeptVO {
 //          타입          이름         = 초기화;
 	private int    deptno = 0;    // 원시형 타입 부르면 값이 나온다, 4byte이니까 (ex 100000 100004 100008 ...)
 	private String dname  = null; // 레퍼런스 타입 클래스 급, 부르면 값이 아닌 주소번지가 나온다. 
-	private String loc    = null; //
+	private String loc    = null; //  --> 캡슐레이션 --> 외부에서 바꾸지 -
 	//getter메소드 - Read
 	//setter메소드 = Write , Save 느낌으로 접근해보기.
 	public int getDeptno() {

@@ -8,10 +8,16 @@ public class DeptVOPractice {
 
 	public int getDeptno() {return deptno;}
 	public void setDeptno(int deptno) {this.deptno = deptno;}
+	
+	
 	public String getDname() {return dname;}
 	public void setDname(String dname) {this.dname = dname;}
+	
+	
 	public String getLoc() {return loc;}
 	public void setLoc(String loc) {this.loc = loc;}
+	
+	
 	void methoA() {}
 	DeptVO methodB() {return new DeptVO();}
 	DeptVO[] methodC() {return new DeptVO[3];}
@@ -19,8 +25,10 @@ public class DeptVOPractice {
 	public static void main(String[] args) {
 		DeptVOPractice dvo = new DeptVOPractice();
 		System.out.println(dvo.getDeptno());
-		dvo.setDeptno(30); // 생성자로 처리해 보시오. 1-2 API 활용 능력.
+		
+		dvo.setDeptno(30); 
 		System.out.println(dvo.getDeptno());
+		
 		dvo.setDeptno(130);
 		System.out.println(dvo.getDeptno());
 
