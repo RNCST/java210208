@@ -9,14 +9,13 @@ public class MemberList {
 		mvo.setGender(true);
 		
 		Gson gson = new Gson();
-		String imsi = gson.toJson(mvo);
+		String imsi = gson.toJson(mvo); // son.toJson(~~)타입에 상관없이 콘솔창 그대로 출력이됨.
 		System.out.println(imsi);
 		
 		mvo = new Member89VO("tomato","123",true); // 생성자를 이용한 전역변수의 초기화.
 		
 		
 		
-		Gson gson2 = new Gson();
 		String imsi2 = gson.toJson(mvo);
 		System.out.println(imsi2);
 	}

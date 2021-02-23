@@ -16,13 +16,13 @@ package practice.p02;
 
 class other{
 	void methodC() {
-	Kquiz_36.methodB(); 
+	Kquiz_36_staticmethod.methodB(); 
 	//다른 클래스의 스태틱 메소드를 호출할때는 클래스.메소드 
-	Kquiz_36 a = new Kquiz_36();
+	Kquiz_36_staticmethod a = new Kquiz_36_staticmethod();
 	a.methodA();
 	}
 }
-public class Kquiz_36 {
+public class Kquiz_36_staticmethod {
 
 	static {
 		System.out.println("static block");		

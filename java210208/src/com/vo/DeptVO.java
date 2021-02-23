@@ -21,15 +21,32 @@ package com.vo;
  *  인스턴스화 하는 이유
  *  DeptVO dvo = new DeptVo();
  *  dvo = DeptVO();
- *  dvo = DeptVO();
  *  
  */
 public class DeptVO {
 //변수의 접근제한자는 왜 private인가??? (private은 class 안에서밖에 접근할수없다.) ---> 
-//          타입          이름         = 초기화;
+	public EmpVO getEVO() {
+		return eVO;
+	}
+	public void setEVO(EmpVO eVO) {
+		this.eVO = eVO;
+	}
+	private EmpVO  eVO    = null;
 	private int    deptno = 0;    // 원시형 타입 부르면 값이 나온다, 4byte이니까 (ex 100000 100004 100008 ...)
 	private String dname  = null; // 레퍼런스 타입 클래스 급, 부르면 값이 아닌 주소번지가 나온다. 
 	private String loc    = null; //  --> 캡슐레이션 --> 외부에서 바꾸지 -
+	
+	
+	public DeptVO(int deptno, String dname, String loc) {
+		this.deptno = deptno;
+		this.dname = dname;
+		this.loc = loc;
+	}
+	public DeptVO() {}
+	
+	
+	
+	
 	//getter메소드 - Read
 	//setter메소드 = Write , Save 느낌으로 접근해보기.
 	public int getDeptno() {
@@ -37,6 +54,7 @@ public class DeptVO {
 	}
 	public void setDeptno(int deptno) {
 		this.deptno = deptno;
+		
 		//deptno = 30;// --> 상수, 재사용성이 떨어짐 
 		//this는 나 자신을 가리키는 수정자이다.
 		//지변과의 식별을 위해 사용하였다. 생략할 수 있다. 
@@ -56,11 +74,6 @@ public class DeptVO {
 		this.loc = loc;
 	}
 //==================================================================================================
-	public DeptVO(int deptno, String dname, String loc) {
-		this.deptno = deptno;
-		this.dname = dname;
-		this.loc = loc;
-	}
 
 
 }

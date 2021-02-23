@@ -16,7 +16,7 @@ package practice.p02;
 //D. public boolean setEnabled( boolean enabled)
 //public boolean getEnabled()
 //
-public class Kquiz_40 {
+public class Kquiz_40_VO {
 
 	public class VO {
 		private String mem_id = null; // 아이디 담기

@@ -29,7 +29,7 @@ package practice.p02;
 //9번라인에 counter가 static 안에 있는데 이 counter라는 변수는 non-static 이기 때문에 
 //static 영역에서 쓸수 없기 떄문에 컴파일 에러가 발생한다.
 //
-public class Kquiz_39 {
+public class Kquiz_39_staticmethod {
 
 	public static void main(String[] args) {
 
