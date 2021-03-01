@@ -31,15 +31,15 @@ public class SalaryMgrView {
    //선언부
    SalaryMgrHandler    smEvent     = null;
    SalaryMgrLogic      smLogic     = null;
-   JFrame             jf_sal       = null;
+   JFrame              jf_sal      = null;
    //DefaultTableModel(DataSet역할:data[][],header[])+JTable=> 테이블
-   String             cols[]      = {"사원명","부서명"};
-   String             data[][]    = new String[0][2]; 
-   JTable             jtb_sal     = null;//화면, 양식, 폼을 그린다.
-   DefaultTableModel    dtm_sal    = null;
+   String              cols[]      = {"사원명","부서명"};
+   String              data[][]    = new String[0][2]; 
+   JTable              jtb_sal     = null;//화면, 양식, 폼을 그린다.
+   DefaultTableModel   dtm_sal     = null;
    JScrollPane         jsp_sal     = null;
-   JTableHeader       jth_sal     = null;
-   JButton          jbtns[]       = null;
+   JTableHeader        jth_sal     = null;
+   JButton             jbtns[]     = null;
    JButton             jbtn        = null;
    String              jbtns_label[] = {"조회","입력","수정","삭제","종료"};
    JPanel              jp_north    = null;   
@@ -67,7 +67,7 @@ public class SalaryMgrView {
          jbtns[i] = jbtn;//버튼 객체 배열과 동기화 처리하기
          jp_north.add(jbtn);
          //이벤트소스와 이벤트 처리 핸들러 메소드 매칭
-         jbtns[i].addActionListener(smEvent);//this는 현재 활성화된 객체 주소번지 SalaryMgr
+         jbtns[i].addActionListener(smEvent);//
       }
       initDisplay();
    }   

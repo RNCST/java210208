@@ -12,8 +12,6 @@ public class SalaryMgrHandler implements ActionListener {
    public void actionPerformed(ActionEvent ae) {
       Object obj = ae.getSource();//버튼의 주소번지를 출력함 예)@abcd1234
       String command = ae.getActionCommand();//버튼의 라벨값을 출력함
-      //너 종료 버튼 누른거야? 네
-      //if("종료".equals(command)) {
       if(smView.jbtns[4]==obj) {
          System.out.println("종료버튼 이벤트 감지됨.");
          //자바 가상머신과의 연결고리 끊어줌. -가비지 컬렉터에 의해서 Candidate상태로 빠짐
