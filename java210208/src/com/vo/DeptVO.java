@@ -43,10 +43,6 @@ public class DeptVO {
 		this.loc = loc;
 	}
 	public DeptVO() {}
-	
-	
-	
-	
 	//getter메소드 - Read
 	//setter메소드 = Write , Save 느낌으로 접근해보기.
 	public int getDeptno() {

@@ -1,5 +1,6 @@
 package com.util;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,12 +8,16 @@ import java.sql.ResultSet;
 
 public class DBConnectionMgr {
 	private final static String _DRIVER = "oracle.jdbc.driver.OracleDriver";
-	private final static String _URL    = "jdbc:oracle:thin:@192.168.0.2:1521:orcl11";
-	private final static String _USER   = "scott";
-	private final static String _PW     = "tiger";
+	private final static String _URL    = "jdbc:oracle:thin:@127.0.0.1:1521:orcl11";
+	private final static String _USER   = "rk51320";
+	private final static String _PW     = "abcd1234";
 	// 캡슐화를 위한 final static 타입 선언 
-	static DBConnectionMgr dbMgr = null;
+	private static DBConnectionMgr dbMgr = null;
+	//이른 인스턴스화 eager
+	private static DBConnectionMgr dbMgr2 = new DBConnectionMgr();
 	Connection con = null;
+	private DBConnectionMgr() {}
+	//게으른 인스턴스화 - 선언과 생성이 따로 쓰여졌을 때 
 	public static DBConnectionMgr getInstance() {
 		if(dbMgr==null) {
 			dbMgr = new DBConnectionMgr();
@@ -23,6 +28,12 @@ public class DBConnectionMgr {
 		try {
 			Class.forName(_DRIVER);
 			con = DriverManager.getConnection(_URL, _USER, _PW);
+			/* 트랜잭션처리
+			con.setAutoCommit(true);
+			con.setAutoCommit(false);
+			con.commit();
+			con.rollback();
+			*/
 		} catch (ClassNotFoundException e) {
 			System.out.println("드라이버 클래스를 찾을수가 없습니다");
 		} catch (Exception e) {
@@ -44,6 +55,21 @@ public class DBConnectionMgr {
 	public void freeConnection(Connection con, PreparedStatement pstmt) {
 		try {
 			if(pstmt !=null) pstmt.close();
+			if(con !=null) con.close();
+		} catch (Exception e) {
+		}
+	}
+	public void freeConnection(Connection con, CallableStatement cstmt) {
+		try {
+			if(cstmt !=null) cstmt.close();
+			if(con !=null) con.close();
+		} catch (Exception e) {
+		}
+	}
+	public void freeConnection(Connection con, CallableStatement cstmt, ResultSet rs) {
+		try {
+			if(rs !=null) rs.close();
+			if(cstmt !=null) cstmt.close();
 			if(con !=null) con.close();
 		} catch (Exception e) {
 		}
