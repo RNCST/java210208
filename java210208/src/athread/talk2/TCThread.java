@@ -1,16 +1,24 @@
 package athread.talk2;
 
+import java.util.Calendar;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
-public class TalkClientThread extends Thread {
-	TalkClient tc = null;
-	public TalkClientThread(TalkClient tc) {
+/**
+ * 이벤트 핸들러의 역할은 말하기 이고 
+ * 클라이언트 스레드의 역한을 듣기이다,
+ *
+ */
+public class TCThread extends Thread {
+	TClient tc = null;
+	
+	public TCThread(TClient tc) {
 		this.tc = tc;
 	}
 	/*
 	 * 서버에서 말한 내용을 들어봅시다.
 	 */
+	@Override
 	public void run() {
 		boolean isStop = false;
 		while(!isStop) {
@@ -18,6 +26,7 @@ public class TalkClientThread extends Thread {
 				String msg = "";//100#apple
 				msg = (String)tc.ois.readObject();
 				StringTokenizer st = null;
+				Calendar cal = Calendar.getInstance();
 				int protocol = 0;//100|200|201|202|500
 				if(msg !=null) {
 					st = new StringTokenizer(msg,"#");
@@ -35,6 +44,7 @@ public class TalkClientThread extends Thread {
 						
 					}break;
 					case 201:{
+						System.out.println("TCTread 201 "+cal.get(Calendar.SECOND)+cal.get(Calendar.MILLISECOND));
 						String nickName = st.nextToken();
 						String message = st.nextToken();
 						tc.jta_display.append("["+nickName+"]"+message+"\n");

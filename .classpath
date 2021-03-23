@@ -4,6 +4,10 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="lib" path="C:/KOSMO80/workspace/java210208/java210208/gson-2.8.6.jar"/>
 	<classpathentry kind="lib" path="C:/app/OSH/product/11.1.0/db_1/jdbc/lib/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="java210208/src/com/design/zipcode/confirm.png"/>
+	<classpathentry kind="lib" path="C:/KOSMO80/workspace/spring-core-4.3.30.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/KOSMO80/workspace/spring-beans-4.3.30.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/KOSMO80/workspace/spring-context-4.3.30.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/KOSMO80/workspace/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/KOSMO80/workspace/spring-expression-4.3.30.RELEASE.jar"/>
 	<classpathentry kind="output" path="java210208/bin"/>
 </classpath>

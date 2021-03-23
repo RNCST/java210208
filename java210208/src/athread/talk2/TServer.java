@@ -20,18 +20,22 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class TalkServer extends JFrame implements Runnable{
-	TalkServerThread 		tst 		= null;
-	List<TalkServerThread> 	globalList 	= null;
+public class TServer extends JFrame implements Runnable{
+	//사용자가 접속을 해올 떄마다 새로 객체를 생성해야함 서로 다른사람이기 때문.,
+	//그사람의 소켓 그사람의 ois 그사람의 oos
+	TSThread 		tst 		= null;
+	public List<TSThread> 	globalList 	= null;
+	List<Room>              roomList    = null;
 	ServerSocket 			server 		= null;
 	Socket 					socket 		= null;
-	JTextArea 				jta_log = new JTextArea(10,30);
+	public JTextArea 		jta_log = new JTextArea(10,30);
 	JScrollPane 			jsp_log = new JScrollPane(jta_log
-			                                         ,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
-			                                         ,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+			                             ,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
+			                             ,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	JPanel 		jp_north = new JPanel();
 	JButton 	jbtn_log = new JButton("로그저장");
-	String      logPath  = "src\\athread\\talk\\";
+	String      logPath  = "src\\athread2\\talk\\";
+	
 	public void initDisplay() {
 		jbtn_log.addActionListener(new ActionListener() {
 			@Override
@@ -76,14 +80,19 @@ public class TalkServer extends JFrame implements Runnable{
 	public void run() {
 		//서버에 접속해온 클라이언트 스레드 정보를 관리할 벡터 생성하기 
 		globalList = new Vector<>();
+		Calendar cal = Calendar.getInstance();
+		int m        = cal.get(Calendar.SECOND);
+		int mm       = cal.get(Calendar.MILLISECOND);
+		String m1    = m+" "+mm;
 		boolean isStop = false;
 		try {
 			server = new ServerSocket(3002);
 			jta_log.append("Server Ready.........\n");
 			while(!isStop) {
 				socket = server.accept();
-				jta_log.append("client info:"+socket+"\n");				
-				TalkServerThread tst = new TalkServerThread(this);
+				jta_log.append("client info:"+socket+"\n");		
+				jta_log.append(m1);
+				tst = new TSThread(this);
 				tst.start();
 			}
 		} catch (Exception e) {
@@ -92,7 +101,7 @@ public class TalkServer extends JFrame implements Runnable{
 	}
 
 	public static void main(String[] args) {
-		TalkServer ts = new TalkServer();
+		TServer ts = new TServer();
 		ts.initDisplay();
 		Thread th = new Thread(ts);
 		th.start();

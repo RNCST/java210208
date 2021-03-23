@@ -2,7 +2,7 @@ package com.design.zipcode;
 
 public class ZipCodeVO {
 	
-private	int     UID_NO   = 0;   // 유니크한 순번           
+private	int     uID_NO   = 0;   // 유니크한 순번           
 private	int     ZIPCODE  = 0;   // 우편번호
 private	String  ZDO      = null;// 시도
 private	String  BUNGI    = null;// 번지
@@ -22,10 +22,10 @@ private	String  ADDRESS  = null;// 주소
 	}
 public int getUID_NO() {
 		
-	return UID_NO;
+	return uID_NO;
 }
 public void setUID_NO(int uID_NO) {
-	UID_NO = uID_NO;
+	uID_NO = uID_NO;
 }
 public int getZIPCODE() {
 	return ZIPCODE;

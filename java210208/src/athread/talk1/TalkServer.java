@@ -20,8 +20,8 @@ public class TalkServer extends JFrame implements Runnable {
 	//////////////////// 통신에 관련된 전변 추가 //////////////////
 	ServerSocket 	server = null;
 	Socket 			client = null;
-	TalkServerThread2 			tst 		= null;
-	Vector<TalkServerThread2> 	globalList 	= null;
+	TalkServerThread 			tst 		= null;
+	Vector<TalkServerThread> 	globalList 	= null;
 	JTextArea       jta_log = new JTextArea();
 	JScrollPane     jsp_log = new JScrollPane(jta_log);
 	
@@ -49,7 +49,7 @@ public class TalkServer extends JFrame implements Runnable {
 			while(!isStop) {
 				client = server.accept();
 				jta_log.append("client info : "+client+"\n");
-				TalkServerThread2 tst = new TalkServerThread2(this);
+				TalkServerThread tst = new TalkServerThread(this);
 				tst.start();
 			}
 		} catch (Exception e) {

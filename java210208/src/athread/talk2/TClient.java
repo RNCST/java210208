@@ -22,7 +22,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class TalkClient extends JFrame implements ActionListener {
+public class TClient extends JFrame implements ActionListener {
 	////////////////통신과 관련한 전역변수 추가 시작//////////////
 	Socket 				socket 	= null;
 	ObjectOutputStream 	oos 	= null;//말 하고 싶을 때
@@ -30,16 +30,18 @@ public class TalkClient extends JFrame implements ActionListener {
 	String 				nickName= null;//닉네임 등록
 	////////////////통신과 관련한 전역변수 추가  끝  //////////////
 	JPanel jp_second	  = new JPanel();
-	JPanel jp_second_south = new JPanel();
+	JPanel jp_second_south= new JPanel();
 	JButton jbtn_one	  = new JButton("1:1");
 	JButton jbtn_change	  = new JButton("대화명변경");
 	JButton jbtn_font	  = new JButton("글자색");
 	JButton jbtn_exit	  = new JButton("나가기");
+	
 	String cols[] 		  = {"대화명"};
 	String data[][] 	  = new String[0][1];
 	DefaultTableModel dtm = new DefaultTableModel(data,cols);
 	JTable			  jtb = new JTable(dtm);
 	JScrollPane       jsp = new JScrollPane(jtb);
+	
 	JPanel jp_first 		= new JPanel();
 	JPanel jp_first_south 	= new JPanel();
 	JTextField jtf_msg = new JTextField(20);//south속지 center
@@ -47,12 +49,15 @@ public class TalkClient extends JFrame implements ActionListener {
 	JTextArea jta_display = null;
 	JScrollPane jsp_display = null;
 	//배경 이미지에 사용될 객체 선언-JTextArea에 페인팅
+	
 	Image back = null;
-	public TalkClient() {
+	
+	public TClient() {
 		jtf_msg.addActionListener(this);
 		jbtn_exit.addActionListener(this);
 		jbtn_change.addActionListener(this);
 	}
+	
 	public void initDisplay() {
 		//사용자의 닉네임 받기
 		nickName = JOptionPane.showInputDialog("닉네임을 입력하세요.");
@@ -69,7 +74,9 @@ public class TalkClient extends JFrame implements ActionListener {
 		jp_first_south.setLayout(new BorderLayout());
 		jp_first_south.add("Center",jtf_msg);
 		jp_first_south.add("East",jbtn_send);
-		back = getToolkit().getImage("src\\athread\\talk\\back.jpg");
+		
+		back = getToolkit().getImage("src\\athread\\talk2\\back.jpg");
+		
 		jta_display = new JTextArea() {
 			private static final long serialVersionUID = 1L;
 			public void paint(Graphics g) {
@@ -93,9 +100,14 @@ public class TalkClient extends JFrame implements ActionListener {
 		this.setVisible(true);
 	}
 	public static void main(String args[]) {
+		// swing skin 사용
 		JFrame.setDefaultLookAndFeelDecorated(true);
-		TalkClient tc = new TalkClient();
+		// 메인 스레드 우선원
+		TClient tc = new TClient();
+		// 화면 부름
 		tc.initDisplay();
+		// 소켓 생성- TS쪽 ServerSocket()감지 -> 일단 소켓 전달됨. - 서버측 run메소드 안에서 - TSThread생성
+		// 생성자 호출(this) - 듣기 가능해짐.(전제조건 생성자안에서 oos(홀수), ois(짝수) 순으로 인스턴스화, 소켓객체가 잇어야 가능)
 		tc.init();
 	}
 	//소켓 관련 초기화
@@ -103,13 +115,18 @@ public class TalkClient extends JFrame implements ActionListener {
 		try {
 			//서버측의 ip주소 작성하기
 			socket = new Socket("127.0.0.1",3002);
+			//TS ServerSocket 감지 -> Client = server.accept(); Client Socket에 대한 정보를 가짐.
+			//홀수 소켓에서 처리
 			oos = new ObjectOutputStream(socket.getOutputStream());
+			//짝수 소켓에서 처리
 			ois = new ObjectInputStream(socket.getInputStream());
 			//initDisplay에서 닉네임이 결정된 후 init메소드가 호출되므로
 			//서버에게 내가 입장한 사실을 알린다.(말하기)
-			oos.writeObject(100+"#"+nickName);
-			//서버에 말을 한 후 들을 준비를 한다.
-			TalkClientThread tct = new TalkClientThread(this);
+			oos.writeObject(100+"#"+nickName); // 말하는 순간
+			//TServerThread의 생성자가 듣기 
+			//서버에 말을 한 후 들을 준비를 한다.  -- 대기를 한다 - 듣는다 - 프로토콜을 비교해야 한다.
+			//프로토콜 설계하기 -- ERD를 그린다.  -- 데이터 클래스를 설계 - List, Map 단위 테스트
+			TCThread tct = new TCThread(this);
 			tct.start();
 		} catch (Exception e) {
 			//예외가 발생했을 때 직접적인 원인되는 클래스명 출력하기
