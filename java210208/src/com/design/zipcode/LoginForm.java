@@ -19,6 +19,7 @@ import common.jdbc.MemberDao;
 public class LoginForm extends JFrame implements ActionListener {
 	String imgPath = "java210208\\src\\com\\design\\zipcode\\";
 	ImageIcon ig = new ImageIcon(imgPath + "main.png");
+	MemberShip ms = new MemberShip();
 	JLabel jlb_id = new JLabel("아이디");
 	JTextField jtf_id = new JTextField("test");
 	JLabel jlb_pw = new JLabel("비밀번호");
@@ -41,6 +42,7 @@ public class LoginForm extends JFrame implements ActionListener {
 	}
 	public void initDisplay() {
 		jbtn_login.addActionListener(this);
+		jbtn_join.addActionListener(this);
 		this.setContentPane(new MyPanel());
 		this.setLayout(null);//디폴트 - BorderLayout
 		jlb_id.setBounds(45, 200, 80, 40);
@@ -61,6 +63,7 @@ public class LoginForm extends JFrame implements ActionListener {
 		this.setLocation(500, 100);
 		this.setSize(350, 600);
 		this.setVisible(true);
+		this.setLocationRelativeTo(null); 
 	}
 	public static void main(String[] args) {
 		LoginForm login = new LoginForm();
@@ -69,7 +72,11 @@ public class LoginForm extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object obj = e.getSource();
-		if(jbtn_login==obj) {
+		if(jbtn_join==obj) {
+			this.dispose();
+			ms.initDisplay();
+		}
+		else if(jbtn_login==obj) {
 			MemberDao md = new MemberDao();
 			if("".equals(jtf_id.getText()) || "".equals(jtf_pw.getText())) {
 				JOptionPane.showMessageDialog(this, "아이디와 비번을 확인하세요");

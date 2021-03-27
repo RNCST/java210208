@@ -14,7 +14,7 @@ private	String  UPD_DATE = null;// 수정날짜
 private	String  ADDRESS  = null;// 주소
 
 
-	ZipCodeVO() {}
+	public ZipCodeVO() {}
 	
 	ZipCodeVO(int uid_no, int zipcode, String zdo, String bungi, String sigu 
 			 ,String dong, String ri, String aptname, String upd_date ,String address){

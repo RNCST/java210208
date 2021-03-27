@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="C:/KOSMO80/workspace/spring-context-4.3.30.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/KOSMO80/workspace/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="C:/KOSMO80/workspace/spring-expression-4.3.30.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/KOSMO80/workspace/mybatis-3.5.6.jar"/>
 	<classpathentry kind="output" path="java210208/bin"/>
 </classpath>
