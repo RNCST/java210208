@@ -25,7 +25,7 @@ import address.mvc.result.AddressCtrl;
 import address.mvc.result.AddressVO;
 
 public class WaitRoom extends JPanel implements ActionListener {
-	TalkClientVer2 tc2 = null;
+	TalkClient tc2 = null;
 	LoginForm loginForm = null;
 	JPanel jp_first = new JPanel();
 	JPanel jp_second = new JPanel();
@@ -59,7 +59,7 @@ public class WaitRoom extends JPanel implements ActionListener {
 		// TODO Auto-generated constructor stub
 	}
 
-	public WaitRoom(TalkClientVer2 tc2) {
+	public WaitRoom(TalkClient tc2) {
 		this.tc2 = tc2;
 		initDisplay();
 	}

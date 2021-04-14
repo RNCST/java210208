@@ -4,15 +4,15 @@ import java.util.List;
 import java.util.Vector;
 
 public class Room {
-	private List<TSThread> userList = new Vector<>();
+	private List<TalkServerThread> userList = new Vector<>();
 	private List<String>   nameList = new Vector<>();
 	private String         title    = null;
 	private String         state    = null;
 	
-	public List<TSThread> getUserList() {
+	public List<TalkServerThread> getUserList() {
 		return userList;
 	}
-	public void setUserList(List<TSThread> userList) {
+	public void setUserList(List<TalkServerThread> userList) {
 		this.userList = userList;
 	}
 	public List<String> getNameList() {

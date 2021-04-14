@@ -33,7 +33,7 @@ public class LoginForm extends JFrame implements ActionListener {
 	/////////////////////////////////////////////////////
 	/* 선언부 */
 	/////////////////////////////////////////////////////
-	TalkClientVer2 tcv = null;
+	TalkClient tcv = null;
 	String nickName="";
 	ChatDao chatDao = new ChatDao();
 	String imgPath="C:\\Java\\dev_javaB\\dev_java\\src\\image\\";
@@ -145,7 +145,7 @@ public class LoginForm extends JFrame implements ActionListener {
 					this.setVisible(false);
 					jtf_id.setText("");
 					jpf_pw.setText("");
-					tcv = new TalkClientVer2(this);
+					tcv = new TalkClient(this);
 					//new WaitingRoom(this);
 				}
 			} catch (Exception ae) { 

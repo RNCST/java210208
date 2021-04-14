@@ -23,7 +23,7 @@ import javax.swing.text.StyledDocument;
 
 
 public class MessageRoom extends JPanel implements ActionListener{
-	TalkClientVer2 tc2 = null;
+	TalkClient tc2 = null;
 	StyledDocument sd_display = 
 			new DefaultStyledDocument(
 					new StyleContext());
@@ -60,7 +60,7 @@ public class MessageRoom extends JPanel implements ActionListener{
 	public MessageRoom() {
 	}
 
-	public MessageRoom(TalkClientVer2 tc2) {
+	public MessageRoom(TalkClient tc2) {
 		this.tc2 = tc2;
 		initDisplay();
 	}

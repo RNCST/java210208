@@ -3,11 +3,21 @@ package thread.bakery;
 public class BakerSimulation {
 	
 	public static void main(String[] args) {
-		BakerStack bs = new BakerStack();
-		Baker b1 = new Baker(bs);
-		b1.start();
+		BakerStack bakerStack = new BakerStack();
 		
-		Customer c1 = new Customer(bs);
-		c1.start();
+		Baker baker1 = new Baker(bakerStack);
+		
+		baker1.start();
+		
+		Customer customer1 = new Customer(bakerStack);
+		
+		customer1.start();
+		
+		Baker baker2 = new Baker(bakerStack);
+		baker2.start();
+		
+		Customer customer2 = new Customer(bakerStack);
+		customer2.start();
+		
 	}
 }

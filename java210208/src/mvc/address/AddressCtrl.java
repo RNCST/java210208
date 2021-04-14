@@ -4,6 +4,14 @@ import java.util.List;
 public class AddressCtrl {
 
 	private AddressVO returnVO = new AddressVO();
+	//아래와 비교되는 값들은 모두 AddressBook에서 받아오거나 또는 ModifyDialog에서 받아와야 한다.
+	//ModifyDialog에서는 입력, 수정만 처리한다.
+	//입력은 INSERT INTO addrDB(COLUM,N....) VALUES(? ? ? ? ?...)
+	//UPDATE addrDB SET address='서울시 마포구 공덕동',....WHERE ano=5;
+	//삭제는 AddressBook의 JTable에서 직접 처리한다. Delete from addrDB WHERE ano=5;
+	//comman = delete;
+	//ano = 5;
+	
 	private AddressVO inVO = new AddressVO();
 
 	private static String _DEL = "delete";

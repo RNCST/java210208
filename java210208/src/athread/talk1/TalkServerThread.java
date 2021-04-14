@@ -5,11 +5,11 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.StringTokenizer;
 
-import athread.talk2.TServer;
+import athread.talk2.TalkServer;
 
 public class TalkServerThread extends Thread {
 	TalkServer ts = null;
-	TServer ts1 = null;
+	TalkServer ts1 = null;
 	Socket client = null;
 	ObjectOutputStream oos = null;// 직렬화를 누릴 수 있다. 홀수
 	ObjectInputStream ois = null;// 직렬화를 누릴 수 있다. 짝수
@@ -44,31 +44,7 @@ public class TalkServerThread extends Thread {
 			e.printStackTrace();
 		}
 	}
-	public TalkServerThread(TServer talkServer) {
-		this.ts1 = talkServer;
-		this.client = ts.client;
-		try {
-			oos = new ObjectOutputStream(client.getOutputStream());// 홀수자리 소켓 - 쓰기역할이여서 ois보다 먼저 씀
-			ois = new ObjectInputStream(client.getInputStream()); // 짝수자리 소켓 - 듣기역할
-			String msg = (String) ois.readObject();
-			ts1.jta_log.append(msg + "\n");
-			StringTokenizer st = new StringTokenizer(msg, "#");
-			st.nextToken();// 100
-			nickName = st.nextToken();
-			ts1.jta_log.append(nickName + "님이 입장하였습니다.\n");
-			for (TalkServerThread tst : ts.globalList) {
-				// 재훈이 입장하기 전에 있는 친구들의 정보를 받기.
-				this.send(100 + "#" + tst.nickName);
-				
-			}
-			ts1.globalList.add(this); // 현재스레드는 재훈 스레드.
-			this.broadCasting(msg);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
+	
 	// 현재 입장해 잇는 친구들 모두에게 메시지 전송하기 구현
 	// globalList에는 서버에 접속해온 클라이언트에 댛나 스레드 객체가 담겨 있음.
 	public void broadCasting(String msg) {

@@ -15,10 +15,10 @@ import javax.swing.text.StyleConstants;
 
 
 public class TalkClientThread extends Thread {
-	TalkClientVer2 tcv = null;
+	TalkClient tcv = null;
 	String path = "C:\\Java\\dev_javaB\\dev_java\\src\\image\\";
 	String g_roomTitle = null;
-	public TalkClientThread(TalkClientVer2 tcv) {
+	public TalkClientThread(TalkClient tcv) {
 		this.tcv = tcv;
 	}
 	public SimpleAttributeSet  makeAttribute(String fcolor) {

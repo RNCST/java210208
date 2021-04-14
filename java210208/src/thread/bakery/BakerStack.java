@@ -3,23 +3,34 @@ package thread.bakery;
 import java.util.Vector;
 
 public class BakerStack {
-	private Vector<String> v = new Vector<>();
-	public synchronized String pop() {
-		String bread = null;
-		if(v.size()==0) {
-			try {
-				System.out.println("There is no Bread");
-				this.wait();
-			} catch (Exception e) {
-				System.out.println("pick bread Exception : "+e.toString());
+	String bread = null;
+	private Vector<String> breadVector = new Vector<>();
+
+	public synchronized String pickBread() {
+		System.out.println("===run BakerStack");
+		for (int i = 0; i < breadVector.size(); i++) {
+			if (breadVector.size() == 0) {
+				try {
+					System.out.println("There is no Bread");
+					this.wait();
+				} catch (Exception e) {
+					System.out.println("pick bread Exception : " + e.toString());
+				}
+
 			}
-			
 		}
-		bread = v.remove(v.size()-1);
+		System.out.println("===pick up | " + bread);
+		bread = breadVector.remove(breadVector.size() - 1);
+		System.out.println("===ROUND END  ");
+		System.out.println("  ");
 		return bread;
 	}
+
 	public synchronized void push(String bread) {
-		System.out.println("Pick the Bread");
+		System.out.println("===run BakerStack push || Pick the Bread");
+		this.bread = bread;
+		System.out.println("this bread is " + bread);
+		breadVector.add(bread);
 		this.notify();
 	}
 }

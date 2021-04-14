@@ -17,5 +17,6 @@
 	<mappers>
 		<mapper resource="mybatis/mapper/book.xml" />
 		<mapper resource="mybatis/mapper/zipcode.xml" />
+		<mapper resource="mybatis/mapper/zipcode.xml" />
 	</mappers>
 </configuration>
