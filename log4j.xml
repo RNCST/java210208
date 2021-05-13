@@ -35,6 +35,7 @@
 <appender-ref ref="file" />
 </root>
 </loggers>
+<typeAliases></typeAliases>
 </configuration>
 
 

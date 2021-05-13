@@ -13,5 +13,8 @@
 	<classpathentry kind="lib" path="C:/KOSMO80/workspace/javax.mail-1.5.6.jar"/>
 	<classpathentry kind="lib" path="C:/KOSMO80/workspace/log4j-api-2.14.1.jar"/>
 	<classpathentry kind="lib" path="C:/KOSMO80/workspace/log4j-core-2.14.1.jar"/>
+	<classpathentry kind="lib" path="C:/jar/spring-webmvc-4.3.30.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 9.0/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 9.0/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="java210208/bin"/>
 </classpath>

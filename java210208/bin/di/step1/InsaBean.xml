@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
+
 	<bean id="insa" class="di.step1.InsaList">
 		<property name="insaBean">
 			<list>
@@ -12,7 +12,30 @@
 			</list>
 		</property>
 	</bean>
-
+	<bean id="insaMap" class="di.step1.InsaMap">
+		<property name="mapBean">
+			<map>
+				<entry>
+					<key>
+						<value>property1</value>
+					</key>
+					<value>Hi!!!</value>
+				</entry>
+				<entry>
+					<key>
+						<value>property2</value>
+					</key>
+					<value>Have a good time</value>
+				</entry>
+				<entry>
+					<key>
+						<value>property3</value>
+					</key>
+					<value>Have a nice day!</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
 </beans>
 
 

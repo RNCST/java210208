@@ -4,8 +4,8 @@ import java.util.List;
 
 public class InsaList {
 //	public class InsaList implements InsaBean {
+	
 	 List<String> insaBean = null;
-
 	public void setInsaBean(List<String> insaBean) {
 		this.insaBean = insaBean;
 	}
